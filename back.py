@@ -5,6 +5,8 @@ from pymongo.server_api import ServerApi
 from flask_login import LoginManager , login_user , logout_user , UserMixin, login_required, current_user
 from flask_cors import CORS
 
+
+
 global esadmin
 global sesion
 esadmin = False
@@ -41,12 +43,12 @@ def login():
             return {'message' : 'ns'}
         if check_password_hash(usuario['contra'] , contra):
             us = user(nombre=usuario['nombre'],
-                      correo=usuario['correo'],
-                      telefono=usuario['telefono'],
-                      rut=usuario['rut'],
-                      direccion=usuario['direccion'],
-                      admin=usuario['admin']
-                      )
+                    correo=usuario['correo'],
+                    telefono=usuario['telefono'],
+                    rut=usuario['rut'],
+                    direccion=usuario['direccion'],
+                    admin=usuario['admin']
+                    )
             login_user(us)
             sesion = True
             if us.admins == "si":
@@ -227,5 +229,6 @@ def crear_admin():
         return jsonify({'message' : 'siu'}),200
     else:
         return jsonify({'message': 'no'}), 200
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000)

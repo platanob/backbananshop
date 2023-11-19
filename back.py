@@ -11,7 +11,7 @@ global esadmin
 global sesion
 esadmin = False
 sesion = False
-uri = "mongodb+srv://benja:123@bananashop.tzmfwsy.mongodb.net/?retryWites=true&w=majority"
+uri = "mongodb+srv://benja:123@bananashop.tzmfwsy.mongodb.net/?retryWites=true&w=majority/banashop"
 client = MongoClient(uri, server_api=ServerApi('1'))
 app = Flask(__name__)
 CORS(app, supports_credentials=True, methods=["GET", "POST", "PATCH", "DELETE"])

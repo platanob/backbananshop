@@ -208,7 +208,7 @@ def obtener_todos_los_productos():
         todos_los_productos.append(producto_encontrado)
 
     # Devolvemos la lista de todos los productos como respuesta
-    return todos_los_productos, 200
+    return jsonify(todos_los_productos), 200
 
 @app.route('/productos/<string:nombre>', methods=['DELETE'])
 def eliminar_producto(nombre):
